@@ -17,7 +17,17 @@ int main()
 		std::cout<<elem<<" ";
 	}
 	std::cout<<std::endl;
-	
+
+	for(std::string& elem : strs)
+	{
+		elem = "1";
+	}	
+	for(std::string& elem : strs) 
+	{
+		std::cout<<elem<<" ";	
+	}
+	std::cout<<std::endl;
+
 	std::for_each(std::begin(strs), std::end(strs), [&](std::string elem){ std::cout<<elem<<", ";});
 	std::cout<<std::endl;	
 
