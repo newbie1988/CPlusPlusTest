@@ -1,10 +1,13 @@
+#include <stdio.h>
 #include <iostream>
 #include <string>
 #include <thread>
 
+
 void ThreadFunc1()
 {
 	std::cout<<"Enter ThreadFunc1"<<std::endl;
+	std::cout<<"thread id: "<<std::this_thread::get_id()<<std::endl;
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 	std::cout<<"Leave ThreadFunc1"<<std::endl;
 }
@@ -20,6 +23,7 @@ void ThreadFunc2(int count, std::string name)
 int main()
 {
 	std::thread thread1(ThreadFunc1);
+	printf("address: %p\n", &thread1);
 	std::thread thread2(ThreadFunc2, 12, "Apple");
 	std::cout<<"Before join\n";
 	thread1.join();
